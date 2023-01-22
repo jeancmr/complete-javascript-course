@@ -182,21 +182,21 @@
 // };
 
 // DOT VS BRACKET NOTATION
-const jonas = {
-  firstName: "Jonas",
-  lastName: "Schedmnann",
-  age: 2037 - 1991,
-  job: "teacher",
-  friends: ["Michael", "Peter", "Steven"],
-};
-console.log(jonas);
+// const jonas = {
+//   firstName: "Jonas",
+//   lastName: "Schedmnann",
+//   age: 2037 - 1991,
+//   job: "teacher",
+//   friends: ["Michael", "Peter", "Steven"],
+// };
+// console.log(jonas);
 
-console.log(jonas.lastName);
-console.log(jonas["lastName"]);
+// console.log(jonas.lastName);
+// console.log(jonas["lastName"]);
 
-const nameKey = "Name";
-console.log(jonas["first" + nameKey]);
-console.log(jonas["last" + nameKey]);
+// const nameKey = "Name";
+// console.log(jonas["first" + nameKey]);
+// console.log(jonas["last" + nameKey]);
 
 // console.log(jonas.'last' + nameKey
 // const inputData = prompt(
@@ -212,23 +212,156 @@ console.log(jonas["last" + nameKey]);
 //     "Wrong request. Choose between firstName, lastName, age, job and friends"
 //   );
 // }
-jonas.location = "Portugal";
-jonas["twitter"] = "@jonasschmedtman";
-console.log(jonas);
+// jonas.location = "Portugal";
+// jonas["twitter"] = "@jonasschmedtman";
+// console.log(jonas);
 
 //Challenge
 //"Jonas has 3 friends, and his best friend is called Michael"
 
 //First way
-console.log(
-  `${jonas.firstName} has ${jonas.friends.length} friends and his best friend is called ${jonas.friends[0]}`
-);
+// console.log(
+//   `${jonas.firstName} has ${jonas.friends.length} friends and his best friend is called ${jonas.friends[0]}`
+// );
 
 //Second way
-console.log(
-  `${jonas["firstName"]} has ${
-    jonas.friends.length
-  } friends and his best friend is called ${
-    jonas.friends[jonas.friends.indexOf("Michael")]
-  }`
-);
+// console.log(
+//   `${jonas["firstName"]} has ${
+//     jonas.friends.length
+//   } friends and his best friend is called ${
+//     jonas.friends[jonas.friends.indexOf("Michael")]
+//   }`
+// );
+
+//'''''''''OBJECT METHODS
+
+// const jonas = {
+//   firstName: "Jonas",
+//   lastName: "Schedmnann",
+//   birthyear: 1991,
+//   job: "teacher",
+//   friends: ["Michael", "Peter", "Steven"],
+//   hasDriverLicense: true,
+
+// calcAge: function (birth) {
+//   return 2037 - birth;
+// },
+
+// calcAge: function () {
+//   console.log(this);
+//   return 2037 - this.birthyear;
+// },
+
+// calcAge: function () {
+//   this.age = 2037 - this.birthyear;
+//   return this.age;
+// },
+// getSummary: function () {
+//   return `Name: ${this.firstName}, last name: ${this.lastName}, birth day: ${this.birthyear}, job: ${this.job}, jonas's friends: ${this.friends} and state of license: ${this.hasDriverLicense}`;
+// },
+// getSummary: function () {
+//   return `${this.firstName} is a ${this.calcAge()}-yeard old ${
+//     this.job
+//   }, and he ${
+//     this.hasDriverLicense ? "has" : "doesn't have"
+//   } a driver's license`;
+// },
+// };
+
+// console.log(jonas["calcAge"](1991));
+// console.log(jonas.calcAge());
+
+// console.log(jonas.age);
+// console.log(jonas.age);
+// console.log(jonas.age);
+// console.log(jonas.getSummary());
+// console.log(jonas);
+
+//  ########## ---- ###### LOOPS ########## ----- #########
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Lifting weights repetition ${rep}`);
+// }
+// const jonas = [
+//   "Jonas",
+//   "Schmedtmann",
+//   2037 - 1991,
+//   "teacher",
+//   ["michael", "peter", "steven"],
+//   true,
+// ];
+// const types = [];
+
+// for (let i = 0; i < jonas.length; i++) {
+//   console.log(jonas[i], typeof jonas[i]);
+
+//   // types[i] = typeof jonas[i];
+//   types.push(typeof jonas[i]);
+// }
+// console.log(types);
+
+// const years = [1991, 2007, 1969, 2020];
+// const ages = [];
+// for (let i = 0; i < years.length; i++) {
+//   ages.push(2037 - years[i]);
+// }
+// console.log(ages);
+
+// // continue and break
+// console.log("-----ONLY STRINGS-------");
+// for (let i = 0; i < years.length; i++) {
+//   if (typeof jonas[i] !== "string") continue;
+
+//   console.log(jonas[i], typeof jonas[i]);
+// }
+
+// console.log("-----BREAK WITH NUMBER-------");
+// for (let i = 0; i < years.length; i++) {
+//   if (typeof jonas[i] === "number") break;
+
+//   console.log(jonas[i], typeof jonas[i]);
+// }
+//  -------- looping backwards
+// const jonas = [
+//   "Jonas",
+//   "Schmedtmann",
+//   2037 - 1991,
+//   "teacher",
+//   ["michael", "peter", "steven"],
+//   true,
+// ];
+
+// for (let i = jonas.length - 1; i >= 0; i--) {
+//   console.log(jonas[i]);
+// }
+
+//  -------- loops in loops
+// for (let exercise = 1; exercise < 4; exercise++) {
+//   console.log(`-----starting exercise ${exercise}`);
+
+//   for (let rep = 1; rep < 8; rep++) {
+//     console.log(`Exercise ${exercise}: lifting weight repetition ${rep}`);
+//   }
+// }
+
+// while loop
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Lifting weights repetition ${rep}`);
+// }
+// let rep = 1;
+// while (rep <= 10) {
+//   console.log(`WHILE: Lifting weights repetition ${rep}`);
+//   rep++;
+// }
+
+// console.log(dice);
+let dice = Math.trunc(Math.random() * 6) + 1;
+while (dice !== 6) {
+  // dice = Math.trunc(Math.random() * 6) + 1;
+  // console.log(dice);
+  // console.log(
+  //   `You rolled a ${dice}. ${dice === 6 ? "Well done!" : "Keep trying"}`
+  // );
+  console.log(`You rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  if (dice === 6) console.log(`Loop is about to end`);
+}
