@@ -51,4 +51,4 @@ const getMovieData = movie => {
   });
 };
 
-getMovieData('gone girl');
+getMovieData('odyssey space');
