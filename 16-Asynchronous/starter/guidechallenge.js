@@ -43,11 +43,27 @@ const whereamI = (lat, lnl) => {
 
       return res.json();
     })
-    .then(data => renderCountry(data[0]))
+    .then(data => {
+      renderCountry(data[0]);
+      const neighbour = data[0].borders?.[0];
+      // const neighbour = 'asdasd';
+
+      if (!neighbour) return;
+
+      // Country 2
+      return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
+    })
+    .then(response => {
+      if (!response.ok)
+        throw new Error(`Neighbour country not found (${response.status})`);
+      return response.json();
+    })
+    .then(data => renderCountry(data, 'neighbour'))
+
     .catch(err => {
       // console.log(`${err} ❗❗`);
       console.error(`${err} ❗❗`);
-      renderError(`Something went wrong ${err.message}. Try again!`);
+      renderError(`Something went wrong. ${err.message}. Try again!`);
       // console.log(err);
     })
     .finally(() => (countriesContainer.style.opacity = 1));
@@ -66,7 +82,7 @@ const coor3 = {
   lnl: '18.474',
 };
 
-whereamI(coor3.lat, coor3.lnl);
+// whereamI(coor3.lat, coor3.lnl);
 // whereamI(coor2.lat, coor2.lnl);
 // whereamI(coor1.lat, coor1.lnl);
 whereamI('10.96219', '-74.80658'); //BARRANQUILLA
